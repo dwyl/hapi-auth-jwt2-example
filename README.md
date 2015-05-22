@@ -1,1 +1,16 @@
-# hapi-auth-jwt2-example
+# hapi-auth-jwt2 *example*
+
+
+
+
+A ***functional example*** Hapi.js app demonstrating
+[***hapi-auth-jwt2***](https://github.com/dwyl/hapi-auth-jwt2) authentication
+using **Redis** (hosted on Heroku) with ***tests***!
+
+## Environment Variables
+
+To run this you will need to add an environment variable for your **JWT_SECRET** and **REDISCLOUD_URL**:
+```
+export JWT_SECRET=ItsNoSecretBecauseYouToldEverybody
+export REDISCLOUD_URL=redis://rediscloud:OhEJvSgna@pub-redis-10689.eu-west-1-2.1.ec2.garantidata.com:10689
+```
