@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-jwt2-example",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A functional example Hapi.js app demonstrating hapi-auth-jwt2 authentication using Redis (hosted on Heroku) with tests!",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ideaq/hapi-auth-jwt2-example.git"
+    "url": "https://github.com/dwyl/hapi-auth-jwt2-example.git"
   },
   "keywords": [
     "hapi.js",
@@ -24,12 +24,12 @@
     "example",
     "hapi-auth-jwt2"
   ],
-  "author": "nelsonic <nodecoder@gmail.com> (https://github.com/nelsonic)",
+  "author": "nelsonic <contact.nelsonic@gmail.com> (https://github.com/nelsonic)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ideaq/hapi-auth-jwt2-example/issues"
+    "url": "https://github.com/dwyl/hapi-auth-jwt2-example/issues"
   },
-  "homepage": "https://github.com/ideaq/hapi-auth-jwt2-example",
+  "homepage": "https://github.com/dwyl/hapi-auth-jwt2-example",
   "dependencies": {
     "aguid": "^1.0.3",
     "hapi": "^8.5.1",
