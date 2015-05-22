@@ -50,10 +50,7 @@ test("Malformed JWT", function(t) {
   };
 
   server.inject(options, function(response) {
-    console.log(response.result);
-    console.log(' '); // blank line
     t.equal(response.statusCode, 401, "INVALID Token should fail");
-    // t.equal(JSON.parse(response.result).msg, 'Invalid Token', "INVALID Token should fail");
     t.end();
   });
 });
@@ -116,8 +113,6 @@ test("Simulate Authentication", function(t) {
   // server.inject lets us similate an http request
   server.inject(options, function(res) {
     token = res.headers.authorization;
-    console.log(" - - - - RESPONSE: ");
-    console.log(res.result);
     t.equal(res.statusCode, 200, "VALID Token should succeed!");
 
     t.end();
@@ -134,8 +129,6 @@ test("Access restricted content with *VALID* JWT", function(t) {
   // server.inject lets us similate an http request
   server.inject(options, function(res) {
     token = res.headers.authorization;
-    console.log(" - - - - RESPONSE: ");
-    console.log(res.result);
     t.equal(res.statusCode, 200, "VALID Token should succeed!");
     t.end();
   });
@@ -148,10 +141,8 @@ test("Logout to end the session", function(t) {
     url: '/logout',
     headers: { 'Authorization' : token } // token from previous test
   };
-  // server.inject lets us similate an http request
+
   server.inject(options, function(res) {
-    // token = res.headers.authorization;
-    // console.log(" - - - - RESPONSE: ");
     console.log(res.result);
     t.equal(res.statusCode, 200, "Logout succeeded");
     t.end();
@@ -167,9 +158,6 @@ test("Attempt to Access restricted content with JWT which is no longer valid", f
   };
   // server.inject lets us similate an http request
   server.inject(options, function(res) {
-    // token = res.headers.authorization;
-    console.log(" - - - - RESPONSE: ");
-    console.log(res.result);
     t.equal(res.statusCode, 401, "Session is no longer valid. (cause we logged out!)");
     t.end();
   });
