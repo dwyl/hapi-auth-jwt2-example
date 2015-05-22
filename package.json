@@ -44,5 +44,10 @@
     "redis": "^0.12.1",
     "tap-spec": "^3.0.0",
     "tape": "^4.0.0"
-  }
+  },
+  "pre-commit": [
+    "jshint",
+    "coverage",
+    "codeclimate"
+  ]
 }
