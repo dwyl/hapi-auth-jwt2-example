@@ -1,6 +1,6 @@
 # hapi-auth-jwt2 *example*
 
-
+[![Build Status](https://travis-ci.org/dwyl/hapi-auth-jwt2-example.svg)](https://travis-ci.org/dwyl/hapi-auth-jwt2-example)
 
 
 A ***functional example*** Hapi.js app demonstrating
