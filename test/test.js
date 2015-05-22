@@ -1,14 +1,14 @@
 var test   = require('tape');
 var JWT    = require('jsonwebtoken');
 
-var server = require('./index.js');
+var server = require('../index.js');
 
-test("Confirm GET / does not require session token", function(t) {
+test("request to GET / should not require session token", function(t) {
   var options = {
     method: "GET",
     url: "/"
   };
-  // server.inject lets us similate an http request
+
   server.inject(options, function(response) {
     t.equal(response.statusCode, 200, "Base URL Does not Require ");
     t.end();
@@ -20,7 +20,7 @@ test("Attempt to access restricted content (without auth token)", function(t) {
     method: "POST",
     url: "/restricted"
   };
-  // server.inject lets us similate an http request
+
   server.inject(options, function(response) {
     t.equal(response.statusCode, 401, "No Token should fail");
     t.end();
@@ -34,7 +34,7 @@ test("Attempt to access restricted content (with an INVALID Token)", function(t)
     url: "/restricted",
     headers: { authorization: "Bearer fails.validation" }
   };
-  // server.inject lets us similate an http request
+
   server.inject(options, function(response) {
     t.equal(response.statusCode, 401, "INVALID Token should fail");
     t.end();
@@ -42,15 +42,13 @@ test("Attempt to access restricted content (with an INVALID Token)", function(t)
 });
 
 test("Malformed JWT", function(t) {
-  // use the token as the 'authorization' header in requests
-  // var token = jwt.sign({ "id": 1 ,"name":"Old Greg" }, 'incorrectSecret');
-  // console.log(token);
+
   var options = {
     method: "POST",
     url: "/restricted",
     headers: { authorization: "Bearer my.invalid.token" }
   };
-  // server.inject lets us similate an http request
+
   server.inject(options, function(response) {
     console.log(response.result);
     console.log(' '); // blank line
@@ -63,8 +61,6 @@ test("Malformed JWT", function(t) {
 test("Try using an incorrect secret to sign the JWT", function(t) {
   // use the token as the 'authorization' header in requests
   var token = JWT.sign({ id:123,"name":"Charlie" }, 'incorrectSecret');
-  console.log(" - - - - - - token  - - - - -")
-  console.log(token);
   var options = {
     method: "POST",
     url: "/restricted",
@@ -73,7 +69,7 @@ test("Try using an incorrect secret to sign the JWT", function(t) {
   // server.inject lets us similate an http request
   server.inject(options, function(response) {
     t.equal(response.statusCode, 401, "Token signed with incorrect key fails");
-  t.equal(true, true, "true is true")
+    t.equal(true, true, "true is true");
     t.end();
   });
 });
@@ -102,12 +98,9 @@ test("Attempt to access restricted content with Well-formed Token but invalid se
     url: "/restricted",
     headers: { authorization: "Bearer "+token }
   };
-  // server.inject lets us similate an http request
-  server.inject(options, function(response) {
-    console.log(" - - - - RESPONSE: ")
-    console.log(response.result);
-    t.equal(response.statusCode, 401, "InVALID Token should Error!");
 
+  server.inject(options, function(response) {
+    t.equal(response.statusCode, 401, "InVALID Token should Error!");
     t.end();
   });
 });
