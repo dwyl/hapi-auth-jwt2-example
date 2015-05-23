@@ -43,14 +43,14 @@ test("Attempt to access restricted content (with an INVALID Token)", function(t)
 
 test("Malformed JWT", function(t) {
 
-  var options = {
+  var o = {
     method: "POST",
-    url: "/restricted",
-    headers: { authorization: "Bearer my.invalid.token" }
+    headers: { authorization: "Bearer my.invalid.token" },
+    url: "/restricted"
   };
 
-  server.inject(options, function(response) {
-    t.equal(response.statusCode, 401, "INVALID Token should fail");
+  server.inject(o, function(res) {
+    t.equal(res.statusCode, 401, "Expect INVALID Token to fail");
     t.end();
   });
 });
@@ -121,15 +121,15 @@ test("Simulate Authentication", function(t) {
 
 test("Access restricted content with *VALID* JWT", function(t) {
   // use the token as the 'authorization' header in requests
-  var options = {
+  var opt = {
     method: 'POST',
     url: '/restricted',
     headers: { 'Authorization' : token } // token from previous test
   };
   // server.inject lets us similate an http request
-  server.inject(options, function(res) {
-    token = res.headers.authorization;
-    t.equal(res.statusCode, 200, "VALID Token should succeed!");
+  server.inject(opt, function(response) {
+    token = response.headers.authorization;
+    t.equal(response.statusCode, 200, "Expect VALID Token to succeed!");
     t.end();
   });
 });
