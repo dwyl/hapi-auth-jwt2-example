@@ -10,7 +10,7 @@
     "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/test.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
     "codeclimate": "CODECLIMATE_REPO_TOKEN=c9460bbb7714c213767962f08bc694a057e3d7b136f3a6bfecd810a8473eade2 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
-    "report":"open coverage/lcov-report/index.html"
+    "report": "open coverage/lcov-report/index.html"
   },
   "repository": {
     "type": "git",
@@ -31,8 +31,10 @@
   "homepage": "https://github.com/dwyl/hapi-auth-jwt2-example",
   "dependencies": {
     "aguid": "^1.0.3",
+    "boom": "^2.7.2",
     "hapi": "^8.5.1",
     "hapi-auth-jwt2": "^4.3.4",
+    "hoek": "^2.14.0",
     "jsonwebtoken": "^5.0.1",
     "redis": "^0.12.1"
   },

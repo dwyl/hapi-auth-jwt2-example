@@ -13,8 +13,12 @@ var redisClient = redis.createClient(redisURL.port, redisURL.hostname,
 redisClient.auth(redisURL.auth.split(":")[1]);
 
 redisClient.set('redis', 'working');
-redisClient.get('redis', function (err, reply) {
-    console.log('redis is ' +reply.toString()); // confirm we can access redis
+redisClient.get('redis', function (rediserror, reply) {
+  /* istanbul ignore if */
+  if(rediserror) {
+    console.log(rediserror);
+  }
+  console.log('redis is ' +reply.toString()); // confirm we can access redis
 });
 
 // bring your own validation function
@@ -22,21 +26,25 @@ var validate = function (decoded, request, callback) {
   console.log(" - - - - - - - DECODED token:");
   console.log(decoded);
   // do your checks to see if the session is valid
-  redisClient.get(decoded.id, function (rediserr, reply) {
+  redisClient.get(decoded.id, function (rediserror, reply) {
+    /* istanbul ignore if */
+    if(rediserror) {
+      console.log(rediserror);
+    }
     console.log(' - - - - - - - REDIS reply - - - - - - - ', reply);
     var session;
     if(reply) {
       session = JSON.parse(reply);
     }
     else { // unable to find session in redis ... reply is null
-      return callback(null, false);
+      return callback(rediserror, false);
     }
 
     if (session.valid === true) {
-      return callback(null, true);
+      return callback(rediserror, true);
     }
     else {
-      return callback(null, false);
+      return callback(rediserror, false);
     }
   });
 };
@@ -94,6 +102,10 @@ server.register(hapiAuthJWT, function (err) {
           process.env.JWT_SECRET);
         var session;
         redisClient.get(decoded.id, function(rediserror, redisreply) {
+          /* istanbul ignore if */
+          if(rediserror) {
+            console.log(rediserror);
+          }
           session = JSON.parse(redisreply)
           console.log(' - - - - - - SESSION - - - - - - - -')
           console.log(session);
