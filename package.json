@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-jwt2-example",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A functional example Hapi.js app demonstrating hapi-auth-jwt2 authentication using Redis (hosted on Heroku) with tests!",
   "main": "index.js",
   "scripts": {
