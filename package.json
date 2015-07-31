@@ -31,8 +31,8 @@
   "homepage": "https://github.com/dwyl/hapi-auth-jwt2-example",
   "dependencies": {
     "aguid": "^1.0.3",
-    "hapi": "^8.8.0",
-    "hapi-auth-jwt2": "^4.6.0",
+    "hapi": "^8.8.1",
+    "hapi-auth-jwt2": "^4.8.0",
     "jsonwebtoken": "^5.0.4",
     "redis": "^0.12.1"
   },
