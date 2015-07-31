@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-jwt2-example",
-  "version": "1.0.6",
+  "version": "4.8.1",
   "description": "A functional example Hapi.js app demonstrating hapi-auth-jwt2 authentication using Redis (hosted on Heroku) with tests!",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
   "dependencies": {
     "aguid": "^1.0.3",
     "hapi": "^8.8.1",
-    "hapi-auth-jwt2": "^4.8.0",
+    "hapi-auth-jwt2": "^4.8.1",
     "jsonwebtoken": "^5.0.4",
     "redis": "^0.12.1"
   },
