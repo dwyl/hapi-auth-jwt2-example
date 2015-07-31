@@ -1,7 +1,7 @@
 var Hapi        = require('hapi');     // https://github.com/nelsonic/learn-hapi
 var hapiAuthJWT = require('hapi-auth-jwt2'); // http://git.io/vT5dZ
 var JWT         = require('jsonwebtoken');   // used to sign our content
-var port        = process.env.PORT || 8000;  // allow port to be set
+var port        = process.env.PORT;  // allow port to be set
 var aguid       = require('aguid')  // https://github.com/ideaq/aguid
 var redis       = require('redis'); // https://github.com/docdis/learn-redis
 var url         = require('url');   // node core!
