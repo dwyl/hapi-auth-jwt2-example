@@ -170,7 +170,9 @@ test("End Connection to RedisCloud", function(t) {
   };
   server.inject(options, function(response) {
     t.equal(response.statusCode, 200, "Redis connection closed.");
-    server.stop();
+    server.stop(function(){
+      console.log('done');
+    });
     t.end();
   });
 });

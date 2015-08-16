@@ -129,6 +129,8 @@ server.register(hapiAuthJWT, function (err) {
   ]);
 });
 
-// server.start(); // uncomment this to run the server directly
-// console.log('Now Visit: http://127.0.0.1:'+port);
+server.start(function(){
+  console.log('Now Visit: http://127.0.0.1:'+port);
+}); // uncomment this to run the server directly
+
 module.exports = server;
