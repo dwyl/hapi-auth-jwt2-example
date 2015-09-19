@@ -3,14 +3,10 @@ var hapiAuthJWT = require('hapi-auth-jwt2'); // http://git.io/vT5dZ
 var JWT         = require('jsonwebtoken');   // used to sign our content
 var port        = process.env.PORT;  // allow port to be set
 var aguid       = require('aguid')  // https://github.com/ideaq/aguid
-var redis       = require('redis'); // https://github.com/docdis/learn-redis
 var url         = require('url');   // node core!
 // if you don't already have a *FREE* RedisCloud Account
 // visit: https://addons.heroku.com/rediscloud (it works outside heroku! free!)
-var redisURL    = url.parse(process.env.REDISCLOUD_URL);
-var redisClient = redis.createClient(redisURL.port, redisURL.hostname,
-                  {no_ready_check: true});
-redisClient.auth(redisURL.auth.split(":")[1]);
+var redisClient = require('redis-connection')(); // instantiate redis-connection
 
 redisClient.set('redis', 'working');
 redisClient.get('redis', function (rediserror, reply) {
