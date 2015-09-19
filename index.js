@@ -7,10 +7,7 @@ var redis       = require('redis'); // https://github.com/docdis/learn-redis
 var url         = require('url');   // node core!
 // if you don't already have a *FREE* RedisCloud Account
 // visit: https://addons.heroku.com/rediscloud (it works outside heroku! free!)
-var redisURL    = url.parse(process.env.REDISCLOUD_URL);
-var redisClient = redis.createClient(redisURL.port, redisURL.hostname,
-                  {no_ready_check: true});
-redisClient.auth(redisURL.auth.split(":")[1]);
+var redisClient = require('redis-connection')();
 
 redisClient.set('redis', 'working');
 redisClient.get('redis', function (rediserror, reply) {
