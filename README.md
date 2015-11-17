@@ -5,7 +5,7 @@ A ***functional example*** Hapi.js app demonstrating
 using **Redis** with ***tests***!
 
 [![Build Status](https://travis-ci.org/dwyl/hapi-auth-jwt2-example.svg)](https://travis-ci.org/dwyl/hapi-auth-jwt2-example)
-[![Test Coverage](https://codeclimate.com/github/dwyl/hapi-auth-jwt2-example/badges/coverage.svg)](https://codeclimate.com/github/dwyl/hapi-auth-jwt2-example/coverage)
+[![Test Coverage](https://codecov.io/github/dwyl/hapi-auth-jwt2-example/coverage.svg?branch=master)](https://codecov.io/github/dwyl/hapi-auth-jwt2-example?branch=master)
 [![Code Climate](https://codeclimate.com/github/dwyl/hapi-auth-jwt2-example/badges/gpa.svg)](https://codeclimate.com/github/dwyl/hapi-auth-jwt2-example)
 [![bitHound Score](https://www.bithound.io/github/dwyl/hapi-auth-jwt2-example/badges/score.svg)](https://www.bithound.io/github/dwyl/hapi-auth-jwt2-example)
 [![Dependency Status](https://david-dm.org/dwyl/hapi-auth-jwt2-example.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2-example)
@@ -42,6 +42,11 @@ export PORT=8000
 # OPTIONAL if you are using RedisCloud:
 export REDISCLOUD_URL=redis://rediscloud:PASSWORD@pub-redis-15721.eu-west-1-2.1.ec2.garantiadata.com:15721
 ```
+
+> Note: If you (*or anyone on your team*) are new to
+Environment Variables or you need a refresher,  
+see: [https://github.com/dwyl/**learn-environment-variables**](https://github.com/dwyl/learn-environment-variables)
+
 
 ## Test everything is working on your local machine
 
