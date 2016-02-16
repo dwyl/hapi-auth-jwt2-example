@@ -36,11 +36,11 @@
     "redis-connection": "^4.0.3"
   },
   "devDependencies": {
-    "istanbul": "^0.4.0",
-    "jshint": "^2.8.0",
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
     "pre-commit": "^1.1.2",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
   },
   "pre-commit": [
     "jshint",
