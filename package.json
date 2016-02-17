@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-jwt2-example",
-  "version": "5.2.0",
+  "version": "5.4.1",
   "description": "A functional example Hapi.js app demonstrating hapi-auth-jwt2 authentication using Redis (hosted on Heroku) with tests!",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/test.js  | node_modules/tap-spec/bin/cmd.js",
     "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/test.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
     "jshint": "./node_modules/jshint/bin/jshint -c .jshintrc --exclude-path .gitignore .",
-    "codeclimate": "CODECLIMATE_REPO_TOKEN=c9460bbb7714c213767962f08bc694a057e3d7b136f3a6bfecd810a8473eade2 ./node_modules/codeclimate-test-reporter/bin/codeclimate.js < ./coverage/lcov.info",
     "report": "open coverage/lcov-report/index.html"
   },
   "repository": {
@@ -30,23 +29,21 @@
   },
   "homepage": "https://github.com/dwyl/hapi-auth-jwt2-example",
   "dependencies": {
-    "aguid": "^1.0.3",
-    "hapi": "^11.1.1",
-    "hapi-auth-jwt2": "^5.2.0",
-    "jsonwebtoken": "^5.4.1",
-    "redis-connection": "^4.0.0"
+    "aguid": "^1.0.4",
+    "hapi": "^13.0.0",
+    "hapi-auth-jwt2": "^5.4.1",
+    "jsonwebtoken": "^5.7.0",
+    "redis-connection": "^4.0.3"
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.1.1",
-    "istanbul": "^0.4.0",
-    "jshint": "^2.8.0",
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
     "pre-commit": "^1.1.2",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0"
   },
   "pre-commit": [
     "jshint",
-    "coverage",
-    "codeclimate"
+    "coverage"
   ]
 }
