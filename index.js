@@ -111,7 +111,7 @@ server.register(hapiAuthJWT, function (err) {
           // create the session in Redis
           redisClient.set(session.id, JSON.stringify(session));
 
-          reply({text: 'Check Auth Header for your Token'})
+          reply({text: 'You have been logged out!'})
         })
       }
     },
