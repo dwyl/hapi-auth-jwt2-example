@@ -4,6 +4,7 @@ var JWT         = require('jsonwebtoken');   // used to sign our content
 var port        = process.env.PORT;  // allow port to be set
 var aguid       = require('aguid')  // https://github.com/ideaq/aguid
 var url         = require('url');   // node core!
+
 // if you don't already have a *FREE* RedisCloud Account
 // visit: https://addons.heroku.com/rediscloud (it works outside heroku! free!)
 var redisClient = require('redis-connection')(); // instantiate redis-connection

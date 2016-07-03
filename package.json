@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "dev": "PORT=8000 node index.js",
     "quick": "./node_modules/tape/bin/tape ./test/test.js | node_modules/tap-spec/bin/cmd.js",
     "test": "istanbul cover ./node_modules/tape/bin/tape ./test/test.js  | node_modules/tap-spec/bin/cmd.js",
     "coverage": "istanbul cover ./node_modules/tape/bin/tape ./test/test.js && istanbul check-coverage --statements 100 --functions 100 --lines 100 --branches 100",
@@ -36,6 +37,7 @@
     "redis-connection": "^4.0.3"
   },
   "devDependencies": {
+    "env2": "^2.1.0",
     "istanbul": "^0.4.3",
     "jshint": "^2.9.2",
     "pre-commit": "^1.1.2",

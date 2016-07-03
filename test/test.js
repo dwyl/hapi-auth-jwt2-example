@@ -1,3 +1,4 @@
+require('env2')('.env');
 var test   = require('tape');
 var JWT    = require('jsonwebtoken');
 
@@ -43,13 +44,14 @@ test("Attempt to access restricted content (with an INVALID Token)", function(t)
 
 test("Malformed JWT", function(t) {
 
-  var o = {
+  var options = {
     method: "POST",
     headers: { authorization: "Bearer my.invalid.token" },
     url: "/restricted"
   };
 
-  server.inject(o, function(res) {
+  server.inject(options, function(res) {
+    // console.log(res.payload)
     t.equal(res.statusCode, 401, "Expect INVALID Token to fail");
     t.end();
   });
@@ -65,6 +67,7 @@ test("Try using an incorrect secret to sign the JWT", function(t) {
   };
   // server.inject lets us similate an http request
   server.inject(options, function(response) {
+    // console.log(response.payload);
     t.equal(response.statusCode, 401, "Token signed with incorrect key fails");
     t.equal(true, true, "true is true");
     t.end();
@@ -143,7 +146,7 @@ test("Logout to end the session", function(t) {
   };
 
   server.inject(options, function(res) {
-    console.log(res.result);
+    // console.log(res.result);
     t.equal(res.statusCode, 200, "Logout succeeded");
     t.end();
   });
