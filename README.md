@@ -10,7 +10,7 @@ using **Redis** with ***tests***!
 [![Dependency Status](https://david-dm.org/dwyl/hapi-auth-jwt2-example.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2-example)
 [![devDependency Status](https://david-dm.org/dwyl/hapi-auth-jwt2-example/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2-example#info=devDependencies)
 [![Hapi Auth JWT2 Version](https://badge.fury.io/js/hapi-auth-jwt2.svg?style=flat)](https://npmjs.org/package/hapi-auth-jwt2)
-[![HAPI Version](https://badge.fury.io/js/hapi.svg?style=flat)](https://npmjs.org/package/hapi)
+[![HAPI 16.5.0](http://img.shields.io/badge/hapi-16.5.0-brightgreen.svg "Latest Hapi.js")](http://hapijs.com)
 
 ## Run it Yourself!
 
